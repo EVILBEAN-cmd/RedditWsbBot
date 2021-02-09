@@ -10,6 +10,7 @@ Filter out common words and symbols
 
 
 Documents:
+
 Secret
 
 Main part (connects to Reddit)
