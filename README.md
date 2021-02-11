@@ -2,19 +2,23 @@
 Reddit bot for most used words on Reddit WSB
 This Bot should show the most trending words on WSB/Reddit
 
-Connect to Reddit and r/WSB
+1. Connect to Reddit and r/WSB
 
-Scan Comments and Posts for Words
+2. Scan Comments and Posts for Words
 
-Filter out common words and symbols
+3. Filter out common words and symbols
+
+4. Store top 10 words in result.txt
 
 
 Documents:
 
-Secret
+Secret (Reddit Login information)
 
 Main part (connects to Reddit)
 
-Common worlds (TXT for common words)
+result (top 10 words found are stored here)
+
+Common words (txt for common words)
 
 JAN 2021
