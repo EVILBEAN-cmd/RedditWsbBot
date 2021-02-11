@@ -1,5 +1,4 @@
-
-import praw
+import praw, heapq
 import numpy as np
 from secret import ClientID, ClientSecret, Username, Password, User_agent
 
@@ -7,12 +6,10 @@ reddit = praw.Reddit(client_id = ClientID, client_secret = ClientSecret, usernam
 
 subreddit = reddit.subreddit("wallstreetbets") # Subreddit looking at 
 
-
 #Ticker and Counter:
 commonWords = np.loadtxt("commonWords.txt", dtype=str)
 commonWords = np.char.lower(commonWords)
 ticker = []
-alreadyPrinted = []
 counter = []
 
 
@@ -34,8 +31,13 @@ for comment in subreddit.stream.comments(): # Stream from reddit, since processi
                             index = ticker.index(currentWord) # finds index of word inside ticker
                             counter[index] += 1 # adds one to the index of the new word
 
-    for i in range(len(ticker)): # goes through ticker 
-        if not(ticker[i] in alreadyPrinted): # checks if word in ticker was already printed
-            if counter[i] > 10: # if not printed checks if it was mentioned more than 10 times
-                alreadyPrinted.append(ticker[i]) #adds not printed word with 10+ mentions to alreadyPrinted 
-                print(ticker[i]) # prints new word with 10+ mentions
+                            
+        tickerIndex = heapq.nlargest(10, range(len(counter)), counter.__getitem__) #Finds Index of 10 biggest values in counter
+        with open("result.txt", "w") as f: # writes ticker and counter into result.txt
+            for i in tickerIndex:
+                f.write(str(ticker[i]))
+                f.write(" ")
+                f.write(str(counter[i]))
+                f.write("\n")
+
+
