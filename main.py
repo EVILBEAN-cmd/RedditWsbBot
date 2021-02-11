@@ -1,9 +1,6 @@
 
-import praw, os, time, threading, math
+import praw
 import numpy as np
-import graphRedditBot
-from datetime import datetime
-
 from secret import ClientID, ClientSecret, Username, Password, User_agent
 
 reddit = praw.Reddit(client_id = ClientID, client_secret = ClientSecret, username = Username, password = Password, user_agent = User_agent) #Login into Reddit with Dev Account
