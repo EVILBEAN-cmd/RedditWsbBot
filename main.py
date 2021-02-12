@@ -37,8 +37,7 @@ for comment in subreddit.stream.comments(): # stream from reddit, since processi
         tickerIndex = heapq.nlargest(10, range(len(counter)), counter.__getitem__) # finds index of 10 biggest values in counter
         with open("result.txt", "w") as file: # writes ticker and counter into result.txt
             for i in tickerIndex:
-                line = [(ticker[i]), " - ", str(counter[i]), "\n"]
-                file.writelines(line)
+                file.writelines([(ticker[i]), " - ", str(counter[i]), "\n"])
             file.close()
 
 
