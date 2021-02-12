@@ -24,6 +24,8 @@ for comment in subreddit.stream.comments(): # stream from reddit, since processi
             and currentWord.find("&") == -1 and currentWord.find(":") == -1 and currentWord.find("(") == -1 and currentWord.find(")") == -1 and currentWord.find("/") == -1 and currentWord.find("\"") == -1 
             and currentWord.find("-") == -1 and currentWord.find("0") == -1 and currentWord.find("1") == -1 and currentWord.find("2") == -1 and currentWord.find("3") == -1 and currentWord.find("4") == -1 
             and currentWord.find("5") == -1 and currentWord.find("6") == -1 and currentWord.find("7") == -1 and currentWord.find("8") == -1 and currentWord.find("9") == -1): # check special characters
+                if currentWord[0] = "$": # removes $ from word
+                    currentWord = currentWord[1:]
                 if not(currentWord in ticker): # checks if word is in ticker
                     ticker.append(currentWord) # appends new word to ticker
                     counter.append(1) # adds one to the new counter slot for the new word
