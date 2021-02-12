@@ -4,6 +4,8 @@ i
 u
 ur
 
+automod
+inbox
 bullshit
 gonna
 yolo
